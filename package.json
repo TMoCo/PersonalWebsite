@@ -5,10 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "ci/cleandist",
+    "prebuild": "ci/cleandist && cp index.html dist",
     "build": "webpack --config webpack.config.js",
-    "build:dev": "webpack --config webpack.dev.config.js",
-    "start:dev": "PORT=3000 node server/index.js"
+    "start:dev": "PORT=3000 node dev/server.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +20,14 @@
   },
   "homepage": "https://github.com/TMoCo/PersonalWebsite#readme",
   "devDependencies": {
+    "@babel/cli": "^7.22.6",
+    "@babel/core": "^7.22.8",
+    "@babel/preset-env": "^7.22.7",
+    "@babel/preset-react": "^7.22.5",
+    "babel-loader": "^9.1.3",
     "express": "^4.18.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   }
