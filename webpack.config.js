@@ -5,7 +5,7 @@ module.exports = {
   mode: 'production',
   output: {
     filename: 'main.min.js',
-    path: path.resolve('dist'),
+    path: path.resolve('./dist'),
   },
   module: {
     rules: [
