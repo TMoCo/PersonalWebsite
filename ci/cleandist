@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -d "./dist" ] 
+then
+    rm -rf dist/*
+    echo "Cleaned dist." 
+else
+    mkdir dist
+    echo "Created dist."
+fi
