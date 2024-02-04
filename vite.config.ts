@@ -21,8 +21,6 @@ export default defineConfig(({ mode }) => {
     test: {
       include: ['../test/**/*.test.ts'],
     },
-    plugins: [
-      react()
-    ],
+    plugins: [react()],
   }
 })
