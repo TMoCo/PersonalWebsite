@@ -11,13 +11,13 @@ export default defineConfig(() => ({
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
-        },
-      },
-    },
+          'react-dom': 'ReactDOM'
+        }
+      }
+    }
   },
   test: {
-    include: ['../test/**/*.test.ts'],
+    include: ['../test/**/*.test.ts']
   },
-  plugins: [react()],
+  plugins: [react()]
 }))
