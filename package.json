@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "Static website for my blog and projects",
     "main": "src/index.tsx",
+    "type": "module",
     "scripts": {
         "prepare": "husky",
         "test": "vitest",

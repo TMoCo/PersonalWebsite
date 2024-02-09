@@ -27,15 +27,6 @@ p {
   max-width: 80%;
 }
 
-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  width: auto;
-  height: 100%;
-}
-
 a {
   color: #ffb84d;
   text-decoration: none;
@@ -45,9 +36,19 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
+.nav {
+  display: flex;
+}
+
 .nav-item {
-  border-radius: 2px;
   list-style-type: none;
+  color: #73cff4;
+  padding: 1vh;
+  align-items: center;
+}
+.nav-item:first-child {
+  list-style-type: none;
+  margin-right: auto;
 }
 
 .nav-item:hover, .nav-item:focus {

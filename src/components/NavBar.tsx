@@ -1,14 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-interface NavItem {
+interface NavItemProps {
   route: string
+  label?: string
 }
 
-const NavItem = ({ route }: NavItem) => {
+const NavItem = ({ route, label }: NavItemProps) => {
   return (
     <li className="nav-item">
-      <Link to={route}>{route}</Link>
+      <Link className="nav-item" to={route}>
+        {label ?? route}
+      </Link>
     </li>
   )
 }
@@ -19,7 +22,10 @@ interface NavBarProps {
 const NavBar = ({ routes }: NavBarProps) => {
   return (
     <nav>
-      <ul>{routes?.map(route => <NavItem key={route} route={route} />)}</ul>
+      <ul className="nav">
+        <NavItem key="home" route="/" label="Thomas Moreno Cooper" />
+        {routes?.map(route => <NavItem key={route} route={route} />)}
+      </ul>
     </nav>
   )
 }
