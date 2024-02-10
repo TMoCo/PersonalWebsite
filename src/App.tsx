@@ -1,10 +1,10 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './pages/Home'
+import Home from './pages/Home.mdx'
 import ErrorPage from './pages/ErrorPage'
 import Root from './pages/Root'
-import About from './pages/About'
-import Portfolio from './pages/Portfolio'
+import About from './pages/About.mdx'
+import Portfolio from './pages/Portfolio.mdx'
 import Test from './pages/portfolio/2DParticleSim.mdx'
 
 const router = createBrowserRouter([

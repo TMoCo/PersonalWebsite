@@ -27,7 +27,7 @@
     "include": [
       "**/*.ts",
       "**/*.tsx"
-    ],
+, "src/pages/Portfolio.msx"    ],
     "references": [
       {
         "path": "./tsconfig.node.json"
