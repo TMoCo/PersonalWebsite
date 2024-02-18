@@ -1,11 +1,16 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './pages/Home.mdx'
-import ErrorPage from './pages/ErrorPage'
+
 import Root from './pages/Root'
+import Home from './pages/Home.mdx'
+
+import ErrorPage from './pages/ErrorPage'
 import About from './pages/About.mdx'
-import Portfolio from './pages/Portfolio.mdx'
-import Test from './pages/portfolio/2DParticleSim.mdx'
+
+import Portfolio from './pages/Portfolio.tsx'
+import PostPage from './pages/Post'
+
+import portfolioLoader from './data/loaders/portfolioLoader'
 
 const router = createBrowserRouter([
   {
@@ -22,12 +27,13 @@ const router = createBrowserRouter([
         element: <About />
       },
       {
-        path: '/test',
-        element: <Test />
+        path: '/portfolio',
+        loader: portfolioLoader,
+        element: <Portfolio />
       },
       {
-        path: '/portfolio',
-        element: <Portfolio />
+        path: '/portfolio/:postId',
+        element: <PostPage />
       }
     ]
   }
