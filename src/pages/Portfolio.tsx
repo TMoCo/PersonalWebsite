@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom'
 
 const Portfolio = () => {
   const { portfolio } = useLoaderData()
+  console.log(portfolio)
   return (
     <>
       <h1>Portfolio</h1>

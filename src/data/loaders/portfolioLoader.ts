@@ -4,7 +4,7 @@ const pages = import.meta.glob<
   {
     default: JSX.Element
   } & PostMeta
->('../../pages/portfolio/*.mdx')
+>('../../pages/portfolio/*.markdown')
 
 export default async () => {
   const portfolio = await Promise.all(Object.keys(pages).map(page => pages[page]())).then(posts => {
