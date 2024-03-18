@@ -41,7 +41,7 @@ const router = createBrowserRouter(
   ],
   {
     // TODO: remove when replacing old Jekyll app
-    basename: 'PersonalWebsite'
+    basename: '/PersonalWebsite'
   }
 )
 
