@@ -2,13 +2,13 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
-import Home from './pages/Home.mdx'
+import HomePage from './pages/HomePage.mdx'
 
 import ErrorPage from './pages/ErrorPage'
 import About from './pages/About.mdx'
 
 import Portfolio from './pages/Portfolio'
-import PostPage from './pages/Post'
+import PostPage from './pages/PostPage'
 
 import portfolioLoader from './data/loaders/portfolioLoader'
 
@@ -21,28 +21,30 @@ const router = createBrowserRouter(
       children: [
         {
           path: '/',
-          element: <Home />
+          element: <HomePage />
         },
         {
-          path: '/about',
+          path: 'about',
           element: <About />
         },
         {
-          path: '/portfolio',
+          path: 'portfolio',
           loader: portfolioLoader,
           element: <Portfolio />
         },
         {
-          path: '/portfolio/:postId',
+          path: 'portfolio/:postId',
           element: <PostPage />
         }
       ]
     }
   ],
-  {
-    // TODO: remove when replacing old Jekyll app
-    basename: '/PersonalWebsite'
-  }
+  import.meta.env.PROD
+    ? {
+        // TODO: remove when replacing old Jekyll app
+        basename: '/PersonalWebsite'
+      }
+    : {}
 )
 
 const App = () => {
