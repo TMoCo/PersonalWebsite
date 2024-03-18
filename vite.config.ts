@@ -7,6 +7,7 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 // https://vitejs.dev/config/
 export default defineConfig({
   root: './src',
+  base: './',
   build: {
     outDir: '../dist',
     rollupOptions: {
@@ -20,7 +21,9 @@ export default defineConfig({
     }
   },
   test: {
-    include: ['../test/**/*.test.ts']
+    root: '.',
+    include: ['test/**/*.test.ts'],
+    outputFile: 'test/test-results.json'
   },
   plugins: [
     { enforce: 'pre', ...mdx({ remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'meta' }]] }) },

@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "prepare": "husky",
-        "test": "vitest",
+        "test": "vitest run --reporter=json",
         "prebuild": "sh ci/cleandist.sh",
         "build": "vite build --emptyOutDir",
         "start": "vite",
