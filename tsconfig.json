@@ -7,7 +7,7 @@
         "DOM",
         "DOM.Iterable"
       ],
-      "types": ["vite/client"],
+      "types": ["vite/client", "mdx"],
       "skipLibCheck": true,
       "esModuleInterop": false,
       "forceConsistentCasingInFileNames": true,
@@ -27,8 +27,9 @@
     ],
     "include": [
       "**/*.ts",
-      "**/*.tsx"
-, "src/pages/Portfolio.msx"    ],
+      "**/*.tsx", 
+      "src/pages/**/*.mdx"
+    ],
     "references": [
       {
         "path": "./tsconfig.node.json"

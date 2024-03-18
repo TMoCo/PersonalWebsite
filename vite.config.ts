@@ -5,25 +5,32 @@ import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  root: './src',
-  build: {
-    outDir: '../dist',
-    rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM'
-        }
-      }
-    }
-  },
-  test: {
-    include: ['../test/**/*.test.ts']
-  },
-  plugins: [
-    { enforce: 'pre', ...mdx({ remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'meta' }]] }) },
-    react()
-  ]
+export default defineConfig(({ mode }) => {
+  console.log(mode)
+  return {
+    root: './src',
+    base: './',
+    build: {
+      outDir: '../dist'
+    },
+    //   rollupOptions: {
+    //     external: ['react', 'react-dom'],
+    //     output: {
+    //       globals: {
+    //         react: 'React',
+    //         'react-dom': 'ReactDOM'
+    //       }
+    //     }
+    //   }
+    // },
+    test: {
+      root: '.',
+      include: ['test/**/*.test.ts'],
+      outputFile: 'test/test-results.json'
+    },
+    plugins: [
+      { enforce: 'pre', ...mdx({ remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'meta' }]] }) },
+      react()
+    ]
+  }
 })
