@@ -9,17 +9,18 @@ export default defineConfig({
   root: './src',
   base: './',
   build: {
-    outDir: '../dist',
-    rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM'
-        }
-      }
-    }
+    outDir: '../dist'
   },
+  //   rollupOptions: {
+  //     external: ['react', 'react-dom'],
+  //     output: {
+  //       globals: {
+  //         react: 'React',
+  //         'react-dom': 'ReactDOM'
+  //       }
+  //     }
+  //   }
+  // },
   test: {
     root: '.',
     include: ['test/**/*.test.ts'],
