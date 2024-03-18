@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
 
 interface NavItemProps {
@@ -19,6 +19,7 @@ const NavItem = ({ route, label }: NavItemProps) => {
 interface NavBarProps {
   routes?: string[]
 }
+
 const NavBar = ({ routes }: NavBarProps) => {
   return (
     <nav>
@@ -30,4 +31,4 @@ const NavBar = ({ routes }: NavBarProps) => {
   )
 }
 
-export default NavBar
+export default memo(NavBar)

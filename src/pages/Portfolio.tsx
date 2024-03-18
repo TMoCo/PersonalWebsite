@@ -1,9 +1,10 @@
 import React from 'react'
 import PreviewTab from '../components/PreviewTab'
 import { useLoaderData } from 'react-router-dom'
+import { Post } from '../data/model/Post'
 
 const Portfolio = () => {
-  const { portfolio } = useLoaderData()
+  const { portfolio } = useLoaderData() as { portfolio: Post[] }
   return (
     <>
       <h1>Portfolio</h1>
