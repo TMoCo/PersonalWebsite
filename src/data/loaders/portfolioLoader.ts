@@ -6,7 +6,7 @@ import { PostMeta } from '../model/PostMeta'
 const pages = import.meta.glob<{
   // vite glob import
   default: JSX.Element // mdx content exported as default
-  meta: PostMeta // yaml front matter
+  meta: PostMeta // post meta data from yaml front matter
 }>('../../pages/portfolio/*.mdx')
 
 export default async () => {
