@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
     root: './src',
     base: './',
     publicDir: '../public',
-  build: {
+    build: {
       outDir: '../dist'
     },
     //   rollupOptions: {
