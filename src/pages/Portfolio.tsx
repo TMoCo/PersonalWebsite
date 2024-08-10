@@ -10,8 +10,10 @@ const Portfolio = () => {
   return (
     <>
       <h1>Portfolio</h1>
-      Below is a selection of a few projects I have worked on. Source code for all these and other projects can be found
-      on on my GitHub. Enjoy!
+      <p>
+        Below is a selection of a few projects I have worked on. Source code for all these and other projects can be
+        found on on my GitHub. Enjoy!
+      </p>
       <PreviewItem
         imgUri="/assets/RavenEngineEditor.png"
         title="Raven Game Engine"
