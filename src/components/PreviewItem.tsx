@@ -16,7 +16,7 @@ const PreviewItem = ({
   children: description
 }: PropsWithChildren<PreviewItemProps>) => {
   const PreviewInfo = [
-    <img key="preview-img" src={imgUri} className={`preview-img`}></img>,
+    <img key="preview-img" src={imgUri} className="preview-img"></img>,
     <div key="preview-description" className="preview-info">
       <h2 className="preview-title">
         <Link className="preview-link" to={route}>
