@@ -7,6 +7,7 @@ interface PostMeta {
 
 interface PortfolioProjectPostMeta extends PostMeta {
   order: number
+  thumbnail: string
   repo?: string
   excerpt?: string
 }

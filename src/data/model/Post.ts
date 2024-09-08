@@ -1,4 +1,4 @@
-import { PostMeta } from './PostMeta'
+import { PortfolioProjectPostMeta, PostMeta } from './PostMeta'
 
 interface Post {
   meta: PostMeta
@@ -6,6 +6,7 @@ interface Post {
 }
 
 interface PortfolioProjectPost extends Post {
+  meta: PortfolioProjectPostMeta
   repoUrl?: string
 }
 
