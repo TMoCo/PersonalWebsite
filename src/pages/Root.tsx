@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import NavBar from '../components/NavBar'
+import { Outlet } from 'react-router-dom'
+import RootHeader from '../components/RootHeader'
 
 import '../core.scss'
 
@@ -17,12 +17,7 @@ const Root = ({ routes }: RootProps) => {
   return (
     <BlogContext.Provider value={blog}>
       <BlogDispatchContext.Provider value={dispatch}>
-        <header className="root-header">
-          <h1 className="heading">
-            <Link to={'/'}>Thomas Moreno Cooper</Link>
-          </h1>
-          <NavBar routes={routes} />
-        </header>
+        <RootHeader routes={routes} />
         <main>
           <Outlet />
         </main>

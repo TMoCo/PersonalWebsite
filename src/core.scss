@@ -1,5 +1,6 @@
 @use './components/NavBar';
 @use './components/PreviewItem';
+@use './components/RootHeader';
 
 :root {
   --white: #ffffff;
@@ -22,16 +23,6 @@ body {
   color: var(--sky-blue);
   font-family: 'Courier New', monospace;
   font-size: 1.5em;
-}
-
-.root-header {
-  display: flex;
-  flex-direction: row;
-  padding: 2vh 2.5vh 1.5vh;
-  background-color: var(--space-light);
-  .heading {
-    margin-right: auto;
-  }
 }
 
 p {
