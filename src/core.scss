@@ -1,6 +1,16 @@
 @use './components/NavBar';
 @use './components/PreviewItem';
 
+:root {
+  --white: #ffffff;
+  --sky-blue: #73cff4;
+  --sky-blue-dark: #3c96be;
+  --space-dark: #090f17;
+  --space: #0f1928;
+  --space-light: #1d2c49;
+  --orange: #ffb84d;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -8,8 +18,8 @@ body {
   margin: 0px;
   height: 100vh;
 
-  background-color: #090f17;
-  color: #73cff4;
+  background-color: var(--space-dark);
+  color: var(--sky-blue);
   font-family: 'Courier New', monospace;
   font-size: 1.5em;
 }
@@ -18,7 +28,7 @@ body {
   display: flex;
   flex-direction: row;
   padding: 2vh 2.5vh 1.5vh;
-  background-color: #1d2c49;
+  background-color: var(--space-light);
   .heading {
     margin-right: auto;
   }
@@ -32,7 +42,7 @@ p {
 }
 
 a {
-  color: #ffb84d;
+  color: var(--orange);
   text-decoration: none;
 }
 
