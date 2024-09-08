@@ -1,0 +1,43 @@
+@use './components/NavBar';
+@use './components/PreviewItem';
+@use './components/RootHeader';
+
+:root {
+  --white: #ffffff;
+  --sky-blue: #73cff4;
+  --sky-blue-dark: #3c96be;
+  --space-dark: #090f17;
+  --space: #0f1928;
+  --space-light: #1d2c49;
+  --orange: #ffb84d;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0px;
+  height: 100vh;
+
+  background-color: var(--space-dark);
+  color: var(--sky-blue);
+  font-family: 'Courier New', monospace;
+  font-size: 1.5em;
+}
+
+p {
+  margin: auto;
+  padding: 1% 1% 2%;
+
+  max-width: 80%;
+}
+
+a {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}

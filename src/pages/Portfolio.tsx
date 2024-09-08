@@ -3,8 +3,6 @@ import PreviewItem from '../components/PreviewItem'
 import { useLoaderData } from 'react-router-dom'
 import { Post } from '../data/model/Post'
 
-import '../style/portfolio.scss'
-
 const Portfolio = () => {
   const { portfolio } = useLoaderData() as { portfolio: Post[] }
   return (

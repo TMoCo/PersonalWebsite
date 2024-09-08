@@ -1,8 +1,8 @@
 import React, { useReducer } from 'react'
 import { Outlet } from 'react-router-dom'
-import NavBar from '../components/NavBar'
+import RootHeader from '../components/RootHeader'
 
-import '../style/root.scss'
+import '../core.scss'
 
 import { BlogContext, BlogDispatchContext } from '../contexts/BlogContext'
 
@@ -17,9 +17,7 @@ const Root = ({ routes }: RootProps) => {
   return (
     <BlogContext.Provider value={blog}>
       <BlogDispatchContext.Provider value={dispatch}>
-        <header>
-          <NavBar routes={routes} />
-        </header>
+        <RootHeader routes={routes} />
         <main>
           <Outlet />
         </main>
