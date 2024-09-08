@@ -1,12 +1,10 @@
 import React, { useReducer } from 'react'
 import { Outlet } from 'react-router-dom'
 import RootHeader from '../components/RootHeader'
+import { BlogContext, BlogDispatchContext } from '../contexts/BlogContext'
+import { blogInitialiser, blogReducer } from '../data/reducer'
 
 import '../core.scss'
-
-import { BlogContext, BlogDispatchContext } from '../contexts/BlogContext'
-
-import { blogInitialiser, blogReducer } from '../data/reducer'
 
 interface RootProps {
   routes?: string[]
