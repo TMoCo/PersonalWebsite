@@ -1,8 +1,8 @@
 ---
-layout: portfolio_entry
+id: portfolio-proj-8
 title:  "Unity Protein Visualiser"
-titlePicture:  "/assets/Ubiquitin.png"
-permalink: "/Unity_Protein_Visualiser/"
+thumbnail:  "/assets/Ubiquitin.png"
+route: "/unity-protein-visualiser/"
 repo: "ProteinVisualiser"
 order: 1
 excerpt: Exploring the application of game technologies in research, I built a protein visualiser in Unity.

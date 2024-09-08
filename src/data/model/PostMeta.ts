@@ -1,8 +1,14 @@
 interface PostMeta {
+  id: number
   title: string
-  previewImgUri?: string
   route: string
-  repo?: string
+  thumbnail?: string
 }
 
-export type { PostMeta }
+interface PortfolioProjectPostMeta extends PostMeta {
+  order: number
+  repo?: string
+  excerpt?: string
+}
+
+export type { PostMeta, PortfolioProjectPostMeta }

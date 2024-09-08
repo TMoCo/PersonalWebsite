@@ -3,12 +3,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
 import HomePage from './pages/HomePage.mdx'
-
 import ErrorPage from './pages/ErrorPage'
 import About from './pages/About.mdx'
-
 import Portfolio from './pages/Portfolio'
-import PostPage from './pages/PostPage'
+import PortfolioProject from './pages/PortfolioProject'
 
 import portfolioLoader from './data/loaders/portfolioLoader'
 
@@ -34,7 +32,7 @@ const router = createBrowserRouter(
         },
         {
           path: 'portfolio/:postId',
-          element: <PostPage />
+          element: <PortfolioProject />
         }
       ]
     }

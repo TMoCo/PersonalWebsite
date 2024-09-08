@@ -1,7 +1,7 @@
 import React from 'react'
 // import { Post } from '../model/post'
 
-const PostPage = () => {
+const PortfolioProject = () => {
   return (
     <>
       <h1>Hello</h1>
@@ -10,4 +10,4 @@ const PostPage = () => {
   )
 }
 
-export default PostPage
+export default PortfolioProject

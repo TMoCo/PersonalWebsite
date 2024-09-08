@@ -1,10 +1,11 @@
 import React from 'react'
 import PreviewItem from '../components/PreviewItem'
 import { useLoaderData } from 'react-router-dom'
-import { Post } from '../data/model/Post'
+import { PortfolioProjectPost } from '../data/model/Post'
 
 const Portfolio = () => {
-  const { portfolio } = useLoaderData() as { portfolio: Post[] }
+  const { portfolio } = useLoaderData() as { portfolio: PortfolioProjectPost[] }
+  console.log(portfolio)
   return (
     <>
       <h1>Portfolio</h1>

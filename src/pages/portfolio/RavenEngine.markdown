@@ -1,8 +1,8 @@
 ---
-layout: portfolio_entry
+id: portfolio-proj-9
 title:  "Raven Game Engine"
-titlePicture:  "/assets/RavenEngineEditor.png"
-permalink: "/Raven_Engine/"
+thumbnail:  "/assets/RavenEngineEditor.png"
+route: "/raven-engine/"
 repo: "RavenEngine"
 order: 0
 excerpt: I led a 5-person team to build a C++ game engine from scratch.

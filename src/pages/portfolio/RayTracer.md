@@ -1,8 +1,8 @@
 ---
-layout: portfolio_entry
+id: portfolio-proj-10
 title:  "RayTracer"
-titlePicture: "/assets/2kcornellbox.jpg"
-permalink: "/RayTracer/"
+thumbnail: "/assets/2kcornellbox.jpg"
+route: "/ray-tracer/"
 repo: "RayTracer"
 order: 6
 excerpt: A C++ application for loading a scene, viewing it in OpenGL and saving a ray traced render to an image.

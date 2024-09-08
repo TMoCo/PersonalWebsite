@@ -5,8 +5,8 @@ interface Post {
   content: JSX.Element
 }
 
-interface PortfolioPost extends Post {
+interface PortfolioProjectPost extends Post {
   repoUrl?: string
 }
 
-export type { PortfolioPost, Post }
+export type { PortfolioProjectPost, Post }

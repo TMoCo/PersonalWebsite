@@ -1,8 +1,8 @@
 ---
-layout: portfolio_entry
+id: portfolio-proj-7
 title:  "Flushed!"
-titlePicture: "/assets/Flushed.png"
-permalink: "/Flushed/"
+thumbnail: "/assets/Flushed.png"
+route: "/flused/"
 repo: "Flushed"
 order: 3
 excerpt: Play as a rubber ducky that has been flushed down the toilet, collect jewellery and avoid obstacles for a high score.

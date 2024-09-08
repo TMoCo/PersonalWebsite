@@ -1,4 +1,4 @@
-import { Post } from '../model/Post'
+import { PortfolioProjectPost } from '../model/Post'
 import { PostMeta } from '../model/PostMeta'
 
 // mimic fetching data from a remote, this could be some server side loaded mdx, or even a serverless solution like
@@ -11,7 +11,7 @@ const pages = import.meta.glob<{
 
 export default async () => {
   const portfolio = await Promise.all(Object.keys(pages).map(page => pages[page]())).then(posts => {
-    return posts.map<Post>(post => {
+    return posts.map<PortfolioProjectPost>(post => {
       const { meta } = post
       return {
         meta,

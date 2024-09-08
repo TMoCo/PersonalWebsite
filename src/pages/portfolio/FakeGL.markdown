@@ -1,8 +1,8 @@
 ---
-layout: portfolio_entry
+id: portfolio-proj-4
 title:  "FakeGL"
-titlePicture: "/assets/FakeGL2.gif"
-permalink: "/FakeGL/"
+thumbnail: "/assets/FakeGL2.gif"
+route: "/fakegl/"
 repo: "FakeGL"
 order: 9
 ---

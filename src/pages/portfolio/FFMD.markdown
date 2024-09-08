@@ -1,8 +1,8 @@
 ---
-layout: portfolio_entry
+id: portfolio-proj-6
 title:  "Mesh Free Form Deformation"
-titlePicture:  "/assets/FreeFormDeformation.gif"
-permalink: "/Free-Form-Deformation/"
+thumbnail:  "/assets/FreeFormDeformation.gif"
+route: "/free-form-deformation/"
 repo: "FFD-tool"
 order: 7
 ---

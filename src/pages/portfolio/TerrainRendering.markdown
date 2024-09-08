@@ -1,8 +1,8 @@
 ---
-layout: portfolio_entry
+id: portfolio-proj-11
 title:  "Terrain Rendering"
-titlePicture:  "/assets/TerrainRendering.png"
-permalink: "/Vulkan_Terrain_Rendering/"
+thumbnail:  "/assets/TerrainRendering.png"
+route: "/vk-terrain-rendering/"
 repo: "HPGA2TerrainRendering"
 order: 5
 excerpt: An application for rendering terrain from height maps with optimizations such as view based culling, written in C++ with the Vulkan API.
