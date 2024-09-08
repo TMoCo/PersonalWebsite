@@ -1,8 +1,8 @@
 import React, { useReducer } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import NavBar from '../components/NavBar'
 
-import '../style/root.scss'
+import '../core.scss'
 
 import { BlogContext, BlogDispatchContext } from '../contexts/BlogContext'
 
@@ -17,7 +17,10 @@ const Root = ({ routes }: RootProps) => {
   return (
     <BlogContext.Provider value={blog}>
       <BlogDispatchContext.Provider value={dispatch}>
-        <header>
+        <header className="root-header">
+          <h1 className="heading">
+            <Link to={'/'}>Thomas Moreno Cooper</Link>
+          </h1>
           <NavBar routes={routes} />
         </header>
         <main>
