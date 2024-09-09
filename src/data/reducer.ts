@@ -1,4 +1,8 @@
-export interface State {}
+import { PortfolioProjectPost } from './model/Post'
+
+export interface State {
+  porfolio?: PortfolioProjectPost[]
+}
 
 export type Action = {
   type: string

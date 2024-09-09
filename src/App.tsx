@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
@@ -9,6 +9,8 @@ import Portfolio from './pages/Portfolio'
 import PortfolioProject from './pages/PortfolioProject'
 
 import portfolioLoader from './data/loaders/portfolioLoader'
+import { blogInitialiser, blogReducer } from './data/reducer'
+import { BlogContext, BlogDispatchContext } from './contexts/BlogContext'
 
 const router = createBrowserRouter(
   [
@@ -27,7 +29,7 @@ const router = createBrowserRouter(
         },
         {
           path: 'portfolio',
-          loader: portfolioLoader,
+          loader: portfolioLoader, // meh
           element: <Portfolio />
         },
         {
@@ -46,7 +48,14 @@ const router = createBrowserRouter(
 )
 
 const App = () => {
-  return <RouterProvider router={router} />
+  const [blog, dispatch] = useReducer(blogReducer, {}, blogInitialiser)
+  return (
+    <BlogContext.Provider value={blog}>
+      <BlogDispatchContext.Provider value={dispatch}>
+        <RouterProvider router={router} />
+      </BlogDispatchContext.Provider>
+    </BlogContext.Provider>
+  )
 }
 
 export default App

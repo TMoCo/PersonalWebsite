@@ -4,7 +4,8 @@ import { useLoaderData } from 'react-router-dom'
 import { PortfolioProjectPost } from '../data/model/Post'
 
 const Portfolio = () => {
-  // maybe this can be saved in some sort of global state?
+  // maybe this can be saved in some sort of app state?
+  // seems like loaders adds extra complexity which we can avoid with built in react features
   const portfolio = useLoaderData() as PortfolioProjectPost[]
   // const { portfolio } = useLoaderData() as { portfolio: PortfolioProjectPost[] }
   console.log(portfolio)
