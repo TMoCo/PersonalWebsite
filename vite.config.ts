@@ -14,16 +14,6 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: '../dist'
     },
-    //   rollupOptions: {
-    //     external: ['react', 'react-dom'],
-    //     output: {
-    //       globals: {
-    //         react: 'React',
-    //         'react-dom': 'ReactDOM'
-    //       }
-    //     }
-    //   }
-    // },
     test: {
       root: '.',
       include: ['test/**/*.test.ts'],

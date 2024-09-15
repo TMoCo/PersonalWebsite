@@ -9,8 +9,6 @@ import Portfolio from './pages/Portfolio'
 import Post from './pages/Post'
 
 import portfolioMetaLoader from './data/loaders/portfolioMetaLoader'
-import { blogInitialiser, blogReducer } from './data/reducer'
-import { BlogContext, BlogDispatchContext } from './contexts/BlogContext'
 
 const router = createBrowserRouter(
   [
@@ -49,14 +47,7 @@ const router = createBrowserRouter(
 )
 
 const App = () => {
-  const [blog, dispatch] = useReducer(blogReducer, {}, blogInitialiser)
-  return (
-    <BlogContext.Provider value={blog}>
-      <BlogDispatchContext.Provider value={dispatch}>
-        <RouterProvider router={router} />
-      </BlogDispatchContext.Provider>
-    </BlogContext.Provider>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App
