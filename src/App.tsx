@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage.mdx'
 import ErrorPage from './pages/ErrorPage'
 import About from './pages/About.mdx'
 import Portfolio from './pages/Portfolio'
-import PortfolioProject from './pages/PortfolioProject'
+import Post from './pages/Post'
 
 import portfolioMetaLoader from './data/loaders/portfolioMetaLoader'
 import { blogInitialiser, blogReducer } from './data/reducer'
@@ -33,8 +33,9 @@ const router = createBrowserRouter(
           element: <Portfolio />
         },
         {
-          path: 'portfolio/:postId',
-          element: <PortfolioProject />
+          path: 'portfolio/:project',
+          loader: ({ params: { project } }) => import(`./pages/Portfolio/${project}.mdx`),
+          element: <Post />
         }
       ]
     }
