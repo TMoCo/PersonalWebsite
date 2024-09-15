@@ -8,7 +8,7 @@ import About from './pages/About.mdx'
 import Portfolio from './pages/Portfolio'
 import PortfolioProject from './pages/PortfolioProject'
 
-import portfolioLoader from './data/loaders/portfolioLoader'
+import portfolioMetaLoader from './data/loaders/portfolioMetaLoader'
 import { blogInitialiser, blogReducer } from './data/reducer'
 import { BlogContext, BlogDispatchContext } from './contexts/BlogContext'
 
@@ -29,7 +29,7 @@ const router = createBrowserRouter(
         },
         {
           path: 'portfolio',
-          loader: portfolioLoader, // meh
+          loader: portfolioMetaLoader,
           element: <Portfolio />
         },
         {

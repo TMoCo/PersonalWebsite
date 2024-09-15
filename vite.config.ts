@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
       outputFile: 'test/test-results.json'
     },
     plugins: [
-      { enforce: 'pre', ...mdx({ remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'meta' }]] }) },
+      { enforce: 'post', ...mdx({ remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'meta' }]] }) },
       react()
     ]
   }
