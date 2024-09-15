@@ -12,7 +12,7 @@ const Root = ({ routes }: RootProps) => {
   return (
     <>
       <RootHeader routes={routes} />
-      <main>
+      <main className="content">
         <Outlet />
       </main>
       <footer></footer>
