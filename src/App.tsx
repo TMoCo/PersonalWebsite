@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
