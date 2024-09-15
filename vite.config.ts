@@ -14,23 +14,13 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: '../dist'
     },
-    //   rollupOptions: {
-    //     external: ['react', 'react-dom'],
-    //     output: {
-    //       globals: {
-    //         react: 'React',
-    //         'react-dom': 'ReactDOM'
-    //       }
-    //     }
-    //   }
-    // },
     test: {
       root: '.',
       include: ['test/**/*.test.ts'],
       outputFile: 'test/test-results.json'
     },
     plugins: [
-      { enforce: 'pre', ...mdx({ remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'meta' }]] }) },
+      { enforce: 'post', ...mdx({ remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'meta' }]] }) },
       react()
     ]
   }

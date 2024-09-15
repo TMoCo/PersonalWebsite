@@ -1,12 +1,13 @@
-import { PostMeta } from './PostMeta'
+import { PortfolioProjectPostMeta, PostMeta } from './PostMeta'
 
 interface Post {
   meta: PostMeta
   content: JSX.Element
 }
 
-interface PortfolioPost extends Post {
+interface PortfolioProjectPost extends Post {
+  meta: PortfolioProjectPostMeta
   repoUrl?: string
 }
 
-export type { PortfolioPost, Post }
+export type { PortfolioProjectPost, Post }

@@ -1,10 +1,11 @@
 import React from 'react'
-import PreviewItem from '../components/PreviewItem'
+import PorfolioProjectPreview from '../components/PortfolioProjectPreview'
 import { useLoaderData } from 'react-router-dom'
-import { Post } from '../data/model/Post'
+import { PortfolioProjectPostMeta } from '../data/model/PostMeta'
 
 const Portfolio = () => {
-  const { portfolio } = useLoaderData() as { portfolio: Post[] }
+  const portfolio = useLoaderData() as PortfolioProjectPostMeta[]
+  portfolio.sort((a, b) => a.order - b.order)
   return (
     <>
       <h1>Portfolio</h1>
@@ -12,21 +13,8 @@ const Portfolio = () => {
         Below is a selection of a few projects I have worked on. Source code for all these and other projects can be
         found on on my GitHub. Enjoy!
       </p>
-      <PreviewItem
-        imgUri="/assets/RavenEngineEditor.png"
-        title="Raven Game Engine"
-        route="/portfolio/raven-game-engine"
-      >
-        Leading a 5-person team to build a C++ game engine from scratch.
-      </PreviewItem>
-      <PreviewItem
-        imgUri="/assets/Ubiquitin.png"
-        title="Unity Protein Visualiser"
-        route="/portfolio/unity-protein-visualiser"
-        justifyImgRight
-      >
-        Exploring the application of game technologies in research by building a protein visualiser in Unity.
-      </PreviewItem>
+      <PorfolioProjectPreview projectMeta={portfolio[0]} />
+      <PorfolioProjectPreview projectMeta={portfolio[1]} justifyImgRight />
     </>
   )
 }

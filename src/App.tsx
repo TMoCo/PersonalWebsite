@@ -3,14 +3,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
 import HomePage from './pages/HomePage.mdx'
-
 import ErrorPage from './pages/ErrorPage'
 import About from './pages/About.mdx'
-
 import Portfolio from './pages/Portfolio'
-import PostPage from './pages/PostPage'
+import Post from './pages/Post'
 
-import portfolioLoader from './data/loaders/portfolioLoader'
+import portfolioMetaLoader from './data/loaders/portfolioMetaLoader'
 
 const router = createBrowserRouter(
   [
@@ -29,12 +27,13 @@ const router = createBrowserRouter(
         },
         {
           path: 'portfolio',
-          loader: portfolioLoader,
+          loader: portfolioMetaLoader,
           element: <Portfolio />
         },
         {
-          path: 'portfolio/:postId',
-          element: <PostPage />
+          path: 'portfolio/:project',
+          loader: ({ params: { project } }) => import(`./pages/Portfolio/${project}.mdx`),
+          element: <Post />
         }
       ]
     }
