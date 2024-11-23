@@ -1,5 +1,10 @@
 .banner {
-  justify-items: center;
-  padding: 1vh 2vw;
   background-color: var(--sky-blue);
+
+  text-align: center;
+  color: var(--space-dark);
+
+  width: 100%;
+  padding: 5vh 10vw;
+  margin-left: -10vw; // move left by 10 % of viewport width
 }

@@ -1,15 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 interface BannerProps {
-  text: string
+  children: ReactNode
 }
 
-const Banner = ({ text }: BannerProps) => {
-  return (
-    <div className="banner">
-      <span>{text}</span>
-    </div>
-  )
+const Banner = ({ children }: BannerProps) => {
+  return <div className="banner">{children}</div>
 }
 
 export default Banner

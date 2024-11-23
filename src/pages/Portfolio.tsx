@@ -1,5 +1,6 @@
 import React from 'react'
 import PorfolioProjectPreview from '../components/PortfolioProjectPreview'
+import Banner from '../components/Banner'
 import { useLoaderData } from 'react-router-dom'
 import { PortfolioProjectPostMeta } from '../data/model/PostMeta'
 
@@ -15,6 +16,7 @@ const Portfolio = () => {
       </p>
       <PorfolioProjectPreview projectMeta={portfolio[0]} />
       <PorfolioProjectPreview projectMeta={portfolio[1]} justifyImgRight />
+      <Banner>I also make games!</Banner>
     </>
   )
 }
