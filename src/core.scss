@@ -1,6 +1,7 @@
 @use './components/NavBar';
 @use './components/PortfolioProjectPreview';
 @use './components/RootHeader';
+@use './components/RootFooter';
 @use './components/Banner';
 @use './components/Ellipsis';
 
@@ -29,6 +30,7 @@ body {
 
 .content {
   padding: 0 10%;
+  min-height: 70vh;
 }
 
 p {
