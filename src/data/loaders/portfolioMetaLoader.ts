@@ -5,6 +5,6 @@ import { PortfolioProjectPostMeta } from '../model/PostMeta'
 export default async () => {
   const posts = import.meta.glob<{
     meta: PortfolioProjectPostMeta // yaml front matter
-  }>('../../pages/portfolio/*.mdx')
+  }>('../../pages/portfolio/posts/*.mdx')
   return Promise.all(Object.keys(posts).map(async post => (await posts[post]()).meta))
 }
