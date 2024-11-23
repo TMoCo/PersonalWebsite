@@ -21,6 +21,10 @@ const Portfolio = () => {
       <PorfolioProjectPreview projectMeta={portfolio[2]} />
       <PorfolioProjectPreview projectMeta={portfolio[3]} justifyImgRight />
       <Ellipsis />
+      <p>By writing tech demos, I hone my C++ programming skills whilst learning about new features and techniques.</p>
+      <PorfolioProjectPreview projectMeta={portfolio[4]} />
+      <PorfolioProjectPreview projectMeta={portfolio[5]} justifyImgRight />
+      <PorfolioProjectPreview projectMeta={portfolio[6]} />
     </>
   )
 }
