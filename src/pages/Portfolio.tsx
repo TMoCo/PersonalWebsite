@@ -17,6 +17,8 @@ const Portfolio = () => {
       <PorfolioProjectPreview projectMeta={portfolio[0]} />
       <PorfolioProjectPreview projectMeta={portfolio[1]} justifyImgRight />
       <Banner>I also make games!</Banner>
+      <PorfolioProjectPreview projectMeta={portfolio[2]} />
+      <PorfolioProjectPreview projectMeta={portfolio[3]} justifyImgRight />
     </>
   )
 }
