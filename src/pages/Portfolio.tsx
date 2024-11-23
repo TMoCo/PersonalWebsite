@@ -3,6 +3,7 @@ import PorfolioProjectPreview from '../components/PortfolioProjectPreview'
 import Banner from '../components/Banner'
 import { useLoaderData } from 'react-router-dom'
 import { PortfolioProjectPostMeta } from '../data/model/PostMeta'
+import Ellipsis from '../components/Ellipsis'
 
 const Portfolio = () => {
   const portfolio = useLoaderData() as PortfolioProjectPostMeta[]
@@ -19,6 +20,7 @@ const Portfolio = () => {
       <Banner>I also make games!</Banner>
       <PorfolioProjectPreview projectMeta={portfolio[2]} />
       <PorfolioProjectPreview projectMeta={portfolio[3]} justifyImgRight />
+      <Ellipsis />
     </>
   )
 }
