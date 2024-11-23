@@ -2,3 +2,4 @@
 [ -d "dist" ] || mkdir dist
 rm -rf dist/*
 echo "Cleaned dist."
+exit 0
