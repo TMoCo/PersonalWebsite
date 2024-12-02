@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import RootHeader from '../components/RootHeader'
 
 import '../core.scss'
+import RootFooter from '../components/RootFooter'
 
 interface RootProps {
   routes?: string[]
@@ -15,7 +16,7 @@ const Root = ({ routes }: RootProps) => {
       <main className="content">
         <Outlet />
       </main>
-      <footer></footer>
+      <RootFooter />
     </>
   )
 }

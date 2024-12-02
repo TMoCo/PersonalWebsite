@@ -1,6 +1,9 @@
 @use './components/NavBar';
 @use './components/PortfolioProjectPreview';
 @use './components/RootHeader';
+@use './components/RootFooter';
+@use './components/Banner';
+@use './components/Ellipsis';
 
 :root {
   --white: #ffffff;
@@ -27,6 +30,7 @@ body {
 
 .content {
   padding: 0 10%;
+  min-height: 70vh;
 }
 
 p {
