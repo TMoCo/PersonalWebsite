@@ -1,0 +1,10 @@
+.root-header {
+  display: flex;
+  flex-direction: row;
+  min-height: 10vh;
+  padding: 2vh 2.5vh 1.5vh;
+  background-color: var(--space-light);
+  .heading {
+    margin-right: auto;
+  }
+}

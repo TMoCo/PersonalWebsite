@@ -1,14 +1,13 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
 import HomePage from './pages/HomePage.mdx'
 import ErrorPage from './pages/ErrorPage'
 import About from './pages/About.mdx'
-import Portfolio from './pages/portfolio'
-import Post from './pages/Post'
 
-import portfolioMetaLoader from './data/loaders/portfolioMetaLoader'
+// @ts-ignore
+const Portfolio = lazy(async () => import('portfolio/app'))
 
 const router = createBrowserRouter([
   {
@@ -24,16 +23,14 @@ const router = createBrowserRouter([
         path: 'about',
         element: <About />
       },
-      {
-        path: 'portfolio',
-        loader: portfolioMetaLoader,
-        element: <Portfolio />
-      },
-      {
-        path: 'portfolio/:project',
-        loader: ({ params: { project } }) => import(`./pages/portfolio/posts/${project}.mdx`),
-        element: <Post />
-      }
+      ...['portfolio', '/portfolio/:project'].map(path => ({
+        path,
+        element: (
+          <Suspense fallback="loading...">
+            <Portfolio />
+          </Suspense>
+        )
+      }))
     ]
   }
 ])
