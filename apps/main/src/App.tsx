@@ -10,44 +10,34 @@ import Post from './pages/Post'
 
 import portfolioMetaLoader from './data/loaders/portfolioMetaLoader'
 
-const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      errorElement: <ErrorPage />,
-      element: <Root routes={['about', 'portfolio']} />,
-      children: [
-        {
-          path: '/',
-          element: <HomePage />
-        },
-        {
-          path: 'about',
-          element: <About />
-        },
-        {
-          path: 'portfolio',
-          loader: portfolioMetaLoader,
-          element: <Portfolio />
-        },
-        {
-          path: 'portfolio/:project',
-          loader: ({ params: { project } }) => import(`./pages/portfolio/posts/${project}.mdx`),
-          element: <Post />
-        }
-      ]
-    }
-  ],
-  import.meta.env.PROD
-    ? {
-        // TODO: remove when replacing old Jekyll app
-        basename: '/PersonalWebsite'
+const router = createBrowserRouter([
+  {
+    path: '/',
+    errorElement: <ErrorPage />,
+    element: <Root routes={['about', 'portfolio']} />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />
+      },
+      {
+        path: 'about',
+        element: <About />
+      },
+      {
+        path: 'portfolio',
+        loader: portfolioMetaLoader,
+        element: <Portfolio />
+      },
+      {
+        path: 'portfolio/:project',
+        loader: ({ params: { project } }) => import(`./pages/portfolio/posts/${project}.mdx`),
+        element: <Post />
       }
-    : {}
-)
+    ]
+  }
+])
 
-const App = () => {
-  return <RouterProvider router={router} />
-}
+const App = () => <RouterProvider router={router} />
 
 export default App

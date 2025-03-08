@@ -7,7 +7,6 @@
     "scripts": {
         "prepare": "husky",
         "test": "vitest run --reporter=json",
-        "prebuild": "sh ci/cleandist.sh",
         "build": "vite build --emptyOutDir --mode production",
         "start": "vite",
         "preview": "vite preview",
