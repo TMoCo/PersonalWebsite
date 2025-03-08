@@ -16,8 +16,9 @@
   "homepage": "https://github.com/TMoCo/PersonalWebsite#readme",
   "scripts": {
     "prepare": "husky",
-    "app": "npm start -w apps/main",
-    "server": "npm start -w server",
+    "main": "npm start -w apps/main",
+    "server": "docker run -p 8080:80 tmoco:latest",
+    "server:build": "docker build -t tmoco:latest .",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "format:fix": "npm run format:fix --workspaces --if-present"
   },
