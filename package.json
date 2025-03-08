@@ -1,9 +1,8 @@
 {
   "workspaces": [
-    "apps/*",
-    "server"
+    "apps/*"
   ],
-  "name": "PersonalWebsite",
+  "name": "personal-website",
   "author": "Thomas Moreno Cooper <thomas.moreno.cooper@gmail.com> (https://TMoCo.github.io/)",
   "version": "1.1.0",
   "description": "Assortment of apps for my personal website",
