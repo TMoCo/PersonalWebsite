@@ -17,10 +17,9 @@
   "scripts": {
     "prepare": "husky",
     "main": "npm start -w apps/main",
-    "server": "docker run -p 8080:80 tmoco:latest",
-    "server:build": "docker build -t tmoco:latest .",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
-    "format:fix": "npm run format:fix --workspaces --if-present"
+    "format:fix": "npm run format:fix --workspaces --if-present",
+    "start": "docker compose up"
   },
   "devDependencies": {
     "husky": "^9.0.10",

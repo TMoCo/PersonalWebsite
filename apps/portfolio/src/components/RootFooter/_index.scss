@@ -1,0 +1,18 @@
+.root-footer {
+  background-color: var(--space-light);
+  
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+  flex-direction: row;
+  
+  min-height: 10vh;
+  padding: 2vh 2.5vh 1.5vh;
+  .section {
+    text-wrap: nowrap;
+    flex: 0 1 auto;
+    &:last-of-type {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 10vw;
+  > div {
+    width: 2vh;
+    height: 2vh;
+    background-color: var(--sky-blue);
+    border-width: 2px;
+    border-radius: 50%;
+  }
+}

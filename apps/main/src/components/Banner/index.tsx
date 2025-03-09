@@ -5,7 +5,13 @@ interface BannerProps {
 }
 
 const Banner = ({ children }: BannerProps) => {
-  return <div className="banner">{children}</div>
+  return (
+    <div className="banner">
+      <b>
+        <i>{children}</i>
+      </b>
+    </div>
+  )
 }
 
 export default Banner

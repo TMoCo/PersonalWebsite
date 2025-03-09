@@ -5,10 +5,11 @@
     "main": "src/index.tsx",
     "type": "module",
     "scripts": {
-        "prepare": "husky",
         "test": "vitest run --reporter=json",
         "build": "vite build --emptyOutDir --mode production",
-        "start": "vite",
+        "build:image": "docker build -t tmoco/main:latest .",
+        "start": "docker run -p 8080:80 tmoco/main:latest",
+        "start:dev": "vite --mode dev",
         "preview": "vite preview",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx",
         "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx --fix",
@@ -32,8 +33,7 @@
         "react-router-dom": "^6.22.0"
     },
     "devDependencies": {
-        "@commitlint/cli": "^18.6.0",
-        "@commitlint/config-conventional": "^18.6.0",
+        "@module-federation/vite": "^1.2.5",
         "@types/mdx": "^2.0.11",
         "@types/node": "^20.11.16",
         "@types/react": "^18.2.52",
@@ -47,12 +47,11 @@
         "eslint-plugin-prettier": "^5.1.3",
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
-        "husky": "^9.0.10",
         "prettier": "^3.2.4",
         "remark-frontmatter": "^5.0.0",
         "remark-mdx-frontmatter": "^4.0.0",
         "sass": "^1.70.0",
-        "vite": "^5.0.12",
-        "vitest": "^1.2.2"
+        "vite": "^6.2.1",
+        "vitest": "^3.0.8"
     }
 }
