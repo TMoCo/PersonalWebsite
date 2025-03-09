@@ -9,7 +9,7 @@
         "build": "vite build --emptyOutDir --mode production",
         "build:image": "docker build -t tmoco/main:latest .",
         "start": "docker run -p 8080:80 tmoco/main:latest",
-        "start:dev": "vite",
+        "start:dev": "vite --mode dev",
         "preview": "vite preview",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx",
         "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx --fix",

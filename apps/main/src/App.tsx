@@ -3,10 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
 import HomePage from './pages/HomePage.mdx'
-import ErrorPage from './pages/ErrorPage'
+import ErrorPage from './pages/ErrorPage.mdx'
 import About from './pages/About.mdx'
 
-// @ts-ignore
 const Portfolio = lazy(async () => import('portfolio/app'))
 
 const router = createBrowserRouter([
@@ -35,6 +34,6 @@ const router = createBrowserRouter([
   }
 ])
 
-const App = () => <RouterProvider router={router} />
+const App = () => <RouterProvider fallbackElement={<ErrorPage />} router={router} />
 
 export default App

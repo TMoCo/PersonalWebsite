@@ -11,6 +11,7 @@ export default defineConfig({
   root: './src',
   base: './',
   publicDir: '../public',
+  server: { port: 5124 },
   build: {
     target: 'chrome89',
     outDir: '../dist'
