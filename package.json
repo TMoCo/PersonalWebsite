@@ -18,7 +18,8 @@
     "prepare": "husky",
     "main": "npm start -w apps/main",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
-    "format:fix": "npm run format:fix --workspaces --if-present"
+    "format:fix": "npm run format:fix --workspaces --if-present",
+    "start": "docker compose up"
   },
   "devDependencies": {
     "husky": "^9.0.10",
