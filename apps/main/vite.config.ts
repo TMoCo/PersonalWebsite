@@ -29,7 +29,7 @@ export default defineConfig({
         portfolio: {
           type: 'module',
           name: 'portfolio',
-          entry: 'http://localhost:5174/index.js',
+          entry: 'http://localhost:8081/index.js',
           entryGlobalName: 'portfolio',
           shareScope: 'default'
         }

@@ -7,7 +7,9 @@
     "scripts": {
         "test": "vitest run --reporter=json",
         "build": "vite build --emptyOutDir --mode production",
-        "start": "vite",
+        "build:image": "docker build -t tmoco/main:latest .",
+        "start": "docker run -p 8080:80 tmoco/main:latest",
+        "start:dev": "vite",
         "preview": "vite preview",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx",
         "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx --fix",
