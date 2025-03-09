@@ -1,3 +1,3 @@
 # Personal Website
-A micro frontend app to share my sofware engineering experiences and projects.
+A collection of micro frontend apps to share my sofware engineering experiences and projects.
 
