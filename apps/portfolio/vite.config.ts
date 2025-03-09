@@ -4,7 +4,7 @@ import mdx from '@mdx-js/rollup'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import { federation } from '@module-federation/vite'
-import { dependencies } from './package.json'
+import { peerDependencies } from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,7 +14,16 @@ export default defineConfig({
   server: { port: 5124 },
   build: {
     target: 'chrome89',
-    outDir: '../dist'
+    outDir: '../dist',
+    rollupOptions: {
+      external: [...Object.keys(peerDependencies ?? {})],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+      }
+    }
   },
   test: {
     root: '.',
@@ -33,11 +42,11 @@ export default defineConfig({
       remotes: {},
       shared: {
         react: {
-          requiredVersion: dependencies.react,
+          requiredVersion: peerDependencies.react,
           singleton: true
         },
         'react-dom': {
-          requiredVersion: dependencies['react-dom'],
+          requiredVersion: peerDependencies['react-dom'],
           singleton: true
         }
       }
