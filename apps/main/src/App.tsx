@@ -5,8 +5,8 @@ import Root from './pages/Root'
 import HomePage from './pages/HomePage.mdx'
 import ErrorPage from './pages/ErrorPage.mdx'
 import About from './pages/About.mdx'
-
-const Portfolio = lazy(async () => import('portfolio/app'))
+import Portfolio from './pages/portfolio/Portfolio.mdx'
+import Post from './pages/Post'
 
 const router = createBrowserRouter([
   {
@@ -22,14 +22,14 @@ const router = createBrowserRouter([
         path: 'about',
         element: <About />
       },
-      ...['portfolio', '/portfolio/:project'].map(path => ({
-        path,
-        element: (
-          <Suspense fallback="loading...">
-            <Portfolio />
-          </Suspense>
-        )
-      }))
+      {
+        path: 'portfolio',
+        element: <Portfolio />
+      },
+      {
+        path: '/portfolio/:project',
+        element: <Post />
+      }
     ]
   }
 ])

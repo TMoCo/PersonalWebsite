@@ -1,38 +1,42 @@
 {
-    "compilerOptions": {
-      "target": "ES2020",
-      "useDefineForClassFields": true,
-      "lib": [
-        "ES2020",
-        "DOM",
-        "DOM.Iterable"
-      ],
-      "types": ["vite/client", "mdx"],
-      "skipLibCheck": true,
-      "esModuleInterop": false,
-      "forceConsistentCasingInFileNames": true,
-      "strict": true,
-      "noImplicitReturns": true,
-      "noImplicitAny": true,
-      "isolatedModules": true,
-      "module": "ESNext",
-      "moduleResolution": "Bundler",
-      "resolveJsonModule": true,
-      "allowJs": true,
-      "jsx": "react-jsx",
-    },
-    "exclude": [
-      "dist/**/*",
-      "node_modules"
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
     ],
-    "include": [
-      "**/*.ts",
-      "**/*.tsx", 
-      "src/pages/**/*.mdx"
+    "types": [
+      "vite/client",
+      "mdx"
     ],
-    "references": [
-      {
-        "path": "./tsconfig.node.json"
-      }
-    ],
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "isolatedModules": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+  },
+  "exclude": [
+    "dist/**/*",
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/**/*.mdx",
+    "rollup.config.mjs"
+, "src/components/Ellipsis/index.jsx"  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
 }

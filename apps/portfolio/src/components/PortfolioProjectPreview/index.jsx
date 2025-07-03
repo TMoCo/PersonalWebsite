@@ -1,13 +1,7 @@
 import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
-import { PortfolioProjectPostMeta } from '../../data/model/PostMeta'
 
-interface PreviewItemProps {
-  projectMeta: PortfolioProjectPostMeta
-  justifyImgRight?: boolean
-}
-
-const PortfolioProjectPreview = ({ projectMeta, justifyImgRight = false }: PreviewItemProps) => {
+const PortfolioProjectPreview = ({ projectMeta, justifyImgRight = false }) => {
   const { thumbnail, route, title, excerpt } = projectMeta
   return (
     <div className={`preview-item ${justifyImgRight ? 'rtl' : ''}`}>
