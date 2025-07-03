@@ -3,14 +3,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
 import HomePage from './pages/HomePage.mdx'
-import ErrorPage from './pages/ErrorPage.mdx'
+import ErrorPage from './pages/ErrorPage'
 import About from './pages/About.mdx'
-import Portfolio from './pages/portfolio/Portfolio.mdx'
+import Portfolio from './pages/Portfolio'
 import Post from './pages/Post'
 
 const router = createBrowserRouter([
   {
-    path: '/',
     errorElement: <ErrorPage />,
     element: <Root routes={['about', 'portfolio']} />,
     children: [
@@ -24,6 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'portfolio',
+        loader: () => fetch('./pages/portfolio/posts/posts-meta.json'),
         element: <Portfolio />
       },
       {
@@ -34,6 +34,6 @@ const router = createBrowserRouter([
   }
 ])
 
-const App = () => <RouterProvider fallbackElement={<ErrorPage />} router={router} />
+const App = () => <RouterProvider router={router} />
 
 export default App

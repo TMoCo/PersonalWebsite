@@ -7,14 +7,16 @@ interface PreviewItemProps {
   justifyImgRight?: boolean
 }
 
-const PortfolioProjectPreview = ({ projectMeta, justifyImgRight = false }: PreviewItemProps) => {
-  const { thumbnail, route, title, excerpt } = projectMeta
+const PortfolioProjectPreview = ({
+  projectMeta: { thumbnail, slug, title, excerpt },
+  justifyImgRight = false
+}: PreviewItemProps) => {
   return (
     <div className={`preview-item ${justifyImgRight ? 'rtl' : ''}`}>
       <img src={thumbnail} className="thumbnail"></img>
       <div className="info">
         <h2 className="title">
-          <Link className="link" to={`/portfolio${route}`}>
+          <Link className="link" to={`/portfolio/${slug}`}>
             {title}
           </Link>
         </h2>

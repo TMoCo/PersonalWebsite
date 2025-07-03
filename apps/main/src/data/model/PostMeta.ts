@@ -1,7 +1,7 @@
 interface PostMeta {
   id: number
   title: string
-  route: string
+  slug: string
   thumbnail?: string
 }
 

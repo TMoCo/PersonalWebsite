@@ -13,7 +13,7 @@ export default defineConfig(({}) => {
     build: {
       outDir: '../dist',
       rollupOptions: {
-        input: ['./src/index.tsx', './src/pages/portfolio/Portfolio.mdx']
+        input: ['./src/index.tsx', './src/pages/Portfolio.tsx']
       }
     },
     test: {
