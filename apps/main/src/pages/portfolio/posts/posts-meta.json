@@ -47,7 +47,7 @@
   {
     "id": "portfolio-proj-9",
     "title": "Raven Game Engine",
-    "thumbnail": "/assets/RavenEngineEditor.,png",
+    "thumbnail": "/assets/RavenEngineEditor.png",
     "slug": "raven-engine",
     "repo": "RavenEngine",
     "order": 0,
