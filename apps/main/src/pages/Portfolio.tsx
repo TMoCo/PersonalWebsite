@@ -41,7 +41,7 @@ export function Project() {
   if (!project) {
     return <p>Unknown Project, navigate to 404</p>
   }
-  const Project = lazy(async () => import(`./portfolio/posts/${project}.mdx`))
+  const Project = lazy(async () => import(`./portfolio/projects/${project}.mdx`))
   return (
     <Suspense fallback={<p>Loading Post...</p>}>
       <Project />
