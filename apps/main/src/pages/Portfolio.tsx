@@ -4,6 +4,9 @@ import { Outlet, useLocation, useOutletContext } from 'react-router-dom'
 import { PortfolioProjectPostMeta } from '../data/model/PostMeta'
 import PortfolioIndexContent from './portfolio/PortfolioIndex.mdx'
 
+import './portfolio.scss'
+import { useTheme } from './Root'
+
 export interface PortfolioContextState {
   meta: PortfolioProjectPostMeta[]
   loading: boolean
@@ -39,11 +42,14 @@ export function usePortfolioContext() {
 export function Project() {
   const { pathname } = useLocation()
   const { meta, projectIndex = meta.findIndex(project => pathname.endsWith(project.slug)) } = usePortfolioContext()
+
   if (projectIndex === undefined) {
     return <p>Unknown Project, navigate to 404</p>
   }
+
   const project = meta[projectIndex]
   const ProjectContent = lazy(async () => import(`./portfolio/projects/${project.slug}.mdx`))
+
   return (
     <Suspense fallback={<p>Loading Post...</p>}>
       <ProjectContent />

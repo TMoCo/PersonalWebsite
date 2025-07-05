@@ -6,6 +6,8 @@ import ErrorPage from './pages/ErrorPage'
 import About from './pages/About.mdx'
 import Portfolio, { PortfolioIndex, Project } from './pages/Portfolio'
 
+import './core.scss'
+
 function App() {
   return (
     <BrowserRouter>
