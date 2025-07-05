@@ -11,24 +11,6 @@ export interface PortfolioContextState {
   project?: string
 }
 
-export function Project() {
-  const { project } = useOutletContext<PortfolioContextState>()
-  if (!project) {
-    return <p>Unknown Project, navigate to 404</p>
-  }
-  const Project = lazy(async () => import(`./portfolio/posts/${project}.mdx`))
-  return (
-    <Suspense fallback={<p>Loading Post...</p>}>
-      <Project />
-    </Suspense>
-  )
-}
-
-export function PortfolioIndex() {
-  const { meta } = useOutletContext<PortfolioContextState>()
-  return <PortfolioIndexContent meta={meta} />
-}
-
 function Portfolio() {
   const [meta, setMeta] = useState<PortfolioProjectPostMeta[]>([])
   const [loading, setLoading] = useState(true)
@@ -48,6 +30,28 @@ function Portfolio() {
   }
 
   return <Outlet context={{ meta, loading, project, setProject }} />
+}
+
+export function usePortfolioContext() {
+  return useOutletContext<PortfolioContextState>()
+}
+
+export function Project() {
+  const { project } = usePortfolioContext()
+  if (!project) {
+    return <p>Unknown Project, navigate to 404</p>
+  }
+  const Project = lazy(async () => import(`./portfolio/posts/${project}.mdx`))
+  return (
+    <Suspense fallback={<p>Loading Post...</p>}>
+      <Project />
+    </Suspense>
+  )
+}
+
+export function PortfolioIndex() {
+  const { meta } = usePortfolioContext()
+  return <PortfolioIndexContent meta={meta} />
 }
 
 export default Portfolio
