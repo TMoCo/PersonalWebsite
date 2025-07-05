@@ -16,10 +16,9 @@
   "homepage": "https://github.com/TMoCo/PersonalWebsite#readme",
   "scripts": {
     "prepare": "husky",
-    "main": "npm start -w apps/main",
+    "start": "npm start -w apps/main",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
-    "format:fix": "npm run format:fix --workspaces --if-present",
-    "start": "docker compose up"
+    "format:fix": "npm run format:fix --workspaces --if-present"
   },
   "devDependencies": {
     "husky": "^9.0.10",

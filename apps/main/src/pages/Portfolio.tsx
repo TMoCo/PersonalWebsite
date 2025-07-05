@@ -1,11 +1,25 @@
-import { useLoaderData } from 'react-router'
+import { useEffect, useState } from 'react'
 import PortfolioContent from './portfolio/Portfolio.mdx'
 import { PortfolioProjectPostMeta } from '../data/model/PostMeta'
 
 const Portfolio = () => {
-  const portfolio = useLoaderData() as PortfolioProjectPostMeta[]
-  portfolio.sort((a, b) => a.order - b.order)
-  return <PortfolioContent portfolio={portfolio} />
+  const [meta, setMeta] = useState<PortfolioProjectPostMeta[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const getMeta = async () => {
+      const { default: portfolioMeta } = await import('../../public/portfolio-meta.json')
+      setMeta(portfolioMeta.sort((a, b) => a.order - b.order))
+      setLoading(false)
+    }
+    getMeta()
+  }, [])
+
+  if (loading) {
+    return <p>Loading...</p>
+  }
+
+  return <PortfolioContent meta={meta} />
 }
 
 export default Portfolio

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './pages/Root'
@@ -23,7 +23,6 @@ const router = createBrowserRouter([
       },
       {
         path: 'portfolio',
-        loader: () => fetch('./pages/portfolio/posts/posts-meta.json'),
         element: <Portfolio />
       },
       {

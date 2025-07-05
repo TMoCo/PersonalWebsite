@@ -1,5 +1,5 @@
 interface PostMeta {
-  id: number
+  id: string
   title: string
   slug: string
   thumbnail?: string
