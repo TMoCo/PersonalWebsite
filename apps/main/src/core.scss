@@ -47,3 +47,12 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
+
+.github-link {
+  padding-bottom: 3vh;
+
+  > svg {
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+}
