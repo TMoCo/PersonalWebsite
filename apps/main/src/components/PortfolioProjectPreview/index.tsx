@@ -1,6 +1,8 @@
 import React, { memo } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
+
 import { PortfolioProjectPostMeta } from '../../data/model/PostMeta'
+import { PortfolioContextState } from '../../pages/Portfolio'
 
 interface PreviewItemProps {
   projectMeta: PortfolioProjectPostMeta
@@ -11,12 +13,13 @@ const PortfolioProjectPreview = ({
   projectMeta: { thumbnail, slug, title, excerpt },
   justifyImgRight = false
 }: PreviewItemProps) => {
+  const { setProject } = useOutletContext<PortfolioContextState>()
   return (
     <div className={`preview-item ${justifyImgRight ? 'rtl' : ''}`}>
       <img src={thumbnail} className="thumbnail"></img>
       <div className="info">
         <h2 className="title">
-          <Link className="link" to={`/portfolio/${slug}`}>
+          <Link className="link" to={`/portfolio/${slug}`} onClick={() => setProject(slug)}>
             {title}
           </Link>
         </h2>
