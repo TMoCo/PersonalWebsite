@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  margin: 0px;
+  margin: 0;
   height: 100vh;
 
   background-color: var(--space-dark);
@@ -28,12 +28,18 @@ body {
 }
 
 main {
-  padding: 0 15%;
+  margin: 0 5vw;
+  padding: 2vh 2vw;
   min-height: 70vh;
 }
 
 p {
   margin: auto;
+  padding: 1% 1% 2%;
+}
+
+h1,ul,ol {
+  margin: 0;
   padding: 1% 1% 2%;
 }
 

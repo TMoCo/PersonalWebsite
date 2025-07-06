@@ -5,17 +5,19 @@
   flex-wrap: wrap;
   margin: 2% 0;
 
-  img,pre {
-    // max-width: 90%;
+  img,
+  pre {
     margin: 0;
     flex: 0 1 90%;
   }
-  
-  &.per-row-1 img,pre{
+
+  &.per-row-1 img,
+  pre {
     min-width: 90%;
   }
 
-  &.per-row-2 img,pre{
+  &.per-row-2 img,
+  pre {
     min-width: 50%;
     flex: 1 1 50%;
   }
@@ -27,7 +29,7 @@
     padding: 2%;
   }
 }
-  
+
 figcaption {
   margin: 0 auto;
   width: 80%;

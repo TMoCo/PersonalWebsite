@@ -1,0 +1,10 @@
+.youtube-embed {
+  margin: 5vh auto;
+  width: 64vw;
+  height: 36vw;
+
+  > iframe {
+    width: 100%;
+    height: 100%;
+  }
+}

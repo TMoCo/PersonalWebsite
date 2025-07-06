@@ -1,22 +1,22 @@
 import { Link } from 'react-router-dom'
+import { Figure } from '../components/Figure'
+import { YouTubeEmbed } from '../components/YouTubeEmbed'
 
 # Can't Wait
-{/* <!-- main content -->
-{% include captioned_image.html src='assets/CantWaitMainMenu.png' alt='Can\'t Wait main menu' caption='Can\'t Wait main menu' %} */}
+<Figure caption="Can't Wait main menu">
+	<img src="/assets/CantWaitMainMenu.png" alt="Can't Wait main menu" />
+</Figure>
 
-<img src="/assets/CantWaitMainMenu.png" alt="Can't Wait main menu" style={{"width":"100%"}}/>
 
 Can't wait is a physics based game made with the Unity game engine where you play as a waiter delivering food to tables.
 
-{/* {% include youtube_video.html link='https://youtube.com/embed/kl9bh2Re8ic' alt='Can\'t Wait trailer' caption='Can\'t Wait trailer (made during game jam)' %} */}
+<YouTubeEmbed src='https://youtube.com/embed/kl9bh2Re8ic' title="Can\'t Wait trailer (made during game jam)" />
 
 Made entirely from scratch (except for the royalty-free music and sound effects) over three days for the 49th Ludum Dare game jam with my friend Jonathan, this game was a lot of fun to make and is even more fun to play. Using the arrow keys, you must navigate through levels in as short a time as possible and by knocking as few objects and people over as possible. The only catch is the waiter you control is a little unstable and will easily trip if you lean too much in a certain direction!
 
 You can view the submission <Link to="https://ldjam.com/events/ludum-dare/49/cant-wait">here</Link> and download the game <Link to="https://TMoCo.itch.io/cant-wait">here</Link>.
 
 <img src="/assets/CantWaitLvl2.gif" alt="Can't Wait second level" style={{"width":"100%"}}/>
-{/* {% include captioned_image.html src='assets/CantWaitLvl2.gif' alt='Can\'t Wait level 2 gif' caption='Can\'t Wait level 2' %}
-{% include captioned_image.html src='assets/CantWaitLvl3.gif' alt='Can\'t Wait level 3 gif' caption='Can\'t Wait level 3' %} */}
 <img src="/assets/CantWaitLvl3.gif" alt="Can't Wait third level" style={{"width":"100%"}}/>
 
 Other game ideas we had for the 'Unstable' theme were:
