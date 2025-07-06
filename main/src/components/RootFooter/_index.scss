@@ -1,4 +1,4 @@
-.root-footer {
+footer {
   background-color: var(--space-light);
   
   display: flex;
@@ -8,11 +8,11 @@
   
   min-height: 10vh;
   padding: 2vh 2.5vh 1.5vh;
-  .section {
-    text-wrap: nowrap;
-    flex: 0 1 auto;
-    &:last-of-type {
-      text-align: right;
-    }
-  }
+  // .section {
+  //   text-wrap: nowrap;
+  //   flex: 0 1 auto;
+  //   &:last-of-type {
+  //     text-align: right;
+  //   }
+  // }
 }

@@ -1,15 +1,10 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
-const RootFooter = () => {
+export default function RootFooter() {
   return (
     <footer className="root-footer">
-      <div className="section">
-        <Link to={'/'}>Thomas Moreno Cooper</Link>
-      </div>
-      <div className="section">Site contents © 2021 under MIT license.</div>
+      <Link to={'/'}>Thomas Moreno Cooper</Link>
+      Site contents © 2021 under MIT license.
     </footer>
   )
 }
-
-export default RootFooter

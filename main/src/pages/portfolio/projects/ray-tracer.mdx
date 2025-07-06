@@ -153,6 +153,7 @@ Here are some time measurements illustrating the impact these accelerations have
 <Figure caption="Run times (averaging of 4 measurements per sample size) for the Cornell box scene">
     <img src="/assets/cornellboxtimings.png" alt="Cornell box scene render times graph"/>
 </Figure>
+
 Rendering in parallel with four cores provides a consistent 600% speedup compared to serial implementations.
 However, because of the relatively small number of primitives in this scene the speedup provided by the LBVH, although still around 16%, is not consequential. An interesting feature of the data is the difference in standard deviation between the non-BVH and LBVH implementations which I believe is a feature of the more cache coherent BVH structure.\\
 Whereas it seems to stabilise at around 1000 ms for the LBVH, it is much higher for the non-BVH and as large as 19775 ms for the serial implementation of 20 samples per pixel. That's almost a 20 second difference between the slowest and fastest measurement!
