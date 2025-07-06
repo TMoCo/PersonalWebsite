@@ -1,6 +1,6 @@
 {
   "workspaces": [
-    "apps/*"
+    "main"
   ],
   "name": "personal-website",
   "author": "Thomas Moreno Cooper <thomas.moreno.cooper@gmail.com> (https://TMoCo.github.io/)",
@@ -16,7 +16,7 @@
   "homepage": "https://github.com/TMoCo/PersonalWebsite#readme",
   "scripts": {
     "prepare": "husky",
-    "start": "npm start -w apps/main",
+    "start": "npm start -w main",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "format:fix": "npm run format:fix --workspaces --if-present"
   },
