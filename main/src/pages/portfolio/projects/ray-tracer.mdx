@@ -52,12 +52,11 @@ I am now the proud owner of a <Link to="https://github.com/TMoCo/Thomath">small 
 
 I also wrote my own WaveFrontOBJ file parser, using the .obj files exported by Blender as templates so that I may easily create my own custom 3D models and render them. The current verion uses modern C++ features such as regular expressions to split file lines into STL vectors and strings, but because of it's heavy use of heap allocation I think I will revert to a more C based solution in the future.
 
-<div class="flex-wrapper">
-<img src="/assets/correctUVs.png" style={{"width": "50%;"}}/>
-<img src="/assets/directions.png" style={{"width": "50%;"}}/>
-<img src="/assets/normals.png" style={{"width": "50%;"}}/>
-<em>Clockwise: correct UVs, random directions, normals. Generated in the old application.</em>
-</div>
+<Figure caption="Clockwise: a Cornell box's UV coordinatess, random ray bounce directions, surface normals" figsPerRow={2}>
+    <img src="/assets/correctUVs.png" alt='cornell box UV cooridnates'/>
+    <img src="/assets/directions.png" alt='cornell box ray directions'/>
+    <img src="/assets/normals.png" alt='cornell box surface normals'/>
+</Figure>
 
 As my application grew in size and complexity, I quickly found myself hindered by the limitations of my development environment. My original coursework used **OpenGL 1.1** (which can be carbon dated to the Jurassic era) and, due to its much smaller scope, was manageable on my small Linux partition with no IDE and no external libary dependencies bar the **Qt** GUI library. 
 
@@ -67,32 +66,29 @@ To manage the third party libraries I would now need, I learnt to use **CMake** 
 
 I used this change as an occasion to make deep modifications to the application's architecture, such as using **Dear ImGui** instead of **Qt** for the GUI, so much so that practically nothing of the original coursework remains.
 
-<div class="flex-wrapper">
-<img src="/assets/RayTracerGUI.png" style={{"width": "90%;"}}/>
-<img src="/assets/guiiteration4.png" style={{"width": "90%;"}}/>
-<em>Top to bottom: Original GUI in Linux, new GUI in Windows.</em>
-</div>
+<Figure caption="Top to bottom: Original GUI in Linux, new GUI in Windows">
+    <img src="/assets/qtrt.jpg" />
+    <img src="/assets/imguirt.jpg"/>
+</Figure>
 
 <Ellipsis />
 
 This ray tracer doesn't use shadow surfels: at the cost of needing more samples, this method provides effects such as caustics and greatly simplifies the material system used, especially for emissive materials by not needing a separate light data structure.
 
-<div class="flex-wrapper">
-<img src="/assets/glassball10.jpg" style={{"width": "50%;"}}/>
-<img src="/assets/glassball1000.jpg" style={{"width": "50%;"}}/>
-<em>A glass ball illuminated by a ball a light, left: 10 samples, right: 1000 samples.</em>
-</div>
+<Figure caption="A glass ball illuminated by a ball a light, left: 10 samples, right: 1000 samples" figsPerRow={2}>
+    <img src="/assets/glassball10.jpg" alt='glass ball rendered with 10 samples'/>
+    <img src="/assets/glassball1000.jpg" alt='glass ball rendered with 1000 samples'/>
+</Figure>
 
 Taking inspiration from the fantastic <Link to="https://www.pbr-book.org/">Physically Based Rendering: From Theory To Implementation</Link>, I've created a custom scene format based on JSON for loading primitives (geometry like spheres or triangle meshes) and customising their properties (like position and material).\\
 \
 The application can be run headless to avoid some setup overhead, which is useful for creating animations, or with a GUI to debug and measure preformance.
 
-<div class="flex-wrapper">
-<img src="/assets/glass_balls.gif" style={{"width": "100%;"}}/>
-<img src="/assets/PBRv1.jpg" style={{"width": "50%;"}}/>
-<img src="/assets/teapot.jpg" style={{"width": "50%;"}}/>
-<em>Clockwise: An animation of glass balls made by a friend using my raytracer, a metal teapot in a cornell box, a rusted iron ball.</em>
-</div>
+<Figure caption="Clockwise: a rusted iron ball, a metal teapot in a cornell box, and some bouncing glass balls made by a friend using my raytracer" figsPerRow={2}>
+    <img src="/assets/pbrball.jpg" />
+    <img src="/assets/teapot.jpg" />
+    <img src="/assets/glass_balls.gif" />
+</Figure>
 
 <Ellipsis />
 

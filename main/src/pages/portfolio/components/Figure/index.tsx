@@ -9,7 +9,11 @@ export function Figure({ children, caption, figsPerRow = 1 }: PropsWithChildren<
   return (
     <figure>
       <div className={`figure per-row-${figsPerRow}`}>{children}</div>
-      {caption && <figcaption><em>{caption}</em></figcaption>}
+      {caption && (
+        <figcaption>
+          <em>{caption}</em>
+        </figcaption>
+      )}
     </figure>
   )
 }
