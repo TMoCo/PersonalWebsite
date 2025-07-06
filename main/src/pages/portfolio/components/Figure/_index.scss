@@ -1,0 +1,35 @@
+.figure {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2% 0;
+
+  img,pre {
+    // max-width: 90%;
+    margin: 0;
+    flex: 0 1 90%;
+  }
+  
+  &.per-row-1 img,pre{
+    min-width: 90%;
+  }
+
+  &.per-row-2 img,pre{
+    min-width: 50%;
+    flex: 1 1 50%;
+  }
+
+  pre {
+    background-color: #272822;
+    border-radius: 5%;
+    font-size: 1.2em;
+    padding: 2%;
+  }
+}
+  
+figcaption {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}

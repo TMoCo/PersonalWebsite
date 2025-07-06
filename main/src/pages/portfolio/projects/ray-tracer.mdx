@@ -1,11 +1,14 @@
 {/* <!-- main content -->
 {% include captioned_image.html src='/assets/2kcornellbox.jpg' alt='cornell box 2k res' caption='My cornell box (2K resolution image with 300 samples per pixel)' %} */}
 import { Link } from 'react-router-dom'
-import Ellipsis from '../../../components/Ellipsis/index.js'
+import Ellipsis from '../../../components/Ellipsis'
+import { Figure } from '../components/Figure'
 
 # Ray Tracer
 
-<img src="/assets/cornellbox.jpg" alt="The cornell box benchmark scene" style={{width: '80vw'}}/>
+<Figure caption="The cornell box benchmark scene">
+    <img src="/assets/cornellbox.jpg" alt="Raven Engine editor screenshot"/>
+</Figure>
 
 During my master's year I learnt about different rendering paradigms. I was smitten by ray tracing's simple concept and the rendering equation, so building a ray tracer and implementing some of the many techniques I read about has been a goal of mine ever since. This application stems from a piece of coursework for my 4th year rendering module which, although enough for an honorable mark, was inaccurate, clunky, and slow. This project has been and still is a great way for me to deepen my knowledge of computer graphics, 3D maths and C++ programming.
 
@@ -15,33 +18,33 @@ My first task was to refactor the 3D maths used in the application, the data str
 
 I also researched _SIMD parallelism_ and vectoried some of my maths data structures using the built-in intrinsics in `xmmintrin.h`. This reduces the number of operations needed resulting in better CPU usage and a drastic speed-up (in my case a 200% speed-up for tasks such as matrix multiplication or vector addition).
 
-```cpp
-// transpose a 4x4 matrix
-Matrix4 Matrix4::transpose(const Matrix4& mat) 
-{
-    __m128 c0c1 = _mm_shuffle_ps(mat.__m[0], 
-        mat.__m[1], _MM_SHUFFLE(1, 0, 1, 0));
-    __m128 c2c3 = _mm_shuffle_ps(mat.__m[2], 
-        mat.__m[3], _MM_SHUFFLE(1, 0, 1, 0));
-    __m128 c1c0 = _mm_shuffle_ps(mat.__m[1], 
-        mat.__m[0], _MM_SHUFFLE(2, 3, 2, 3));
-    __m128 c3c2 = _mm_shuffle_ps(mat.__m[3], 
-        mat.__m[2], _MM_SHUFFLE(2, 3, 2, 3));
-    Matrix4 t;
-    t.__m[0] = _mm_shuffle_ps(c0c1, c2c3, 
-        _MM_SHUFFLE(2, 0, 2, 0));
-    t.__m[1] = _mm_shuffle_ps(c0c1, c2c3, 
-        _MM_SHUFFLE(3, 1, 3, 1));
-    t.__m[2] = _mm_shuffle_ps(c1c0, c3c2, 
-        _MM_SHUFFLE(1, 3, 1, 3));
-    t.__m[3] = _mm_shuffle_ps(c1c0, c3c2, 
-        _MM_SHUFFLE(0, 2, 0, 2));
-    return t;
-}
-```
-<div class="flex-wrapper">
-<em>C++ code for matrix transpose with intrinsics.</em>
-</div>
+
+<Figure caption="C++ code for matrix transpose with intrinsics.">
+    ```cpp
+    // transpose a 4x4 matrix
+    Matrix4 Matrix4::transpose(const Matrix4& mat) 
+    {
+        __m128 c0c1 = _mm_shuffle_ps(mat.__m[0], 
+            mat.__m[1], _MM_SHUFFLE(1, 0, 1, 0));
+        __m128 c2c3 = _mm_shuffle_ps(mat.__m[2], 
+            mat.__m[3], _MM_SHUFFLE(1, 0, 1, 0));
+        __m128 c1c0 = _mm_shuffle_ps(mat.__m[1], 
+            mat.__m[0], _MM_SHUFFLE(2, 3, 2, 3));
+        __m128 c3c2 = _mm_shuffle_ps(mat.__m[3], 
+            mat.__m[2], _MM_SHUFFLE(2, 3, 2, 3));
+        Matrix4 t;
+        t.__m[0] = _mm_shuffle_ps(c0c1, c2c3, 
+            _MM_SHUFFLE(2, 0, 2, 0));
+        t.__m[1] = _mm_shuffle_ps(c0c1, c2c3, 
+            _MM_SHUFFLE(3, 1, 3, 1));
+        t.__m[2] = _mm_shuffle_ps(c1c0, c3c2, 
+            _MM_SHUFFLE(1, 3, 1, 3));
+        t.__m[3] = _mm_shuffle_ps(c1c0, c3c2, 
+            _MM_SHUFFLE(0, 2, 0, 2));
+        return t;
+    }
+    ```
+</Figure>
 
 I am now the proud owner of a <Link to="https://github.com/TMoCo/Thomath">small 3D maths library called Thomath</Link> that I use in my graphics projects!
 
@@ -97,57 +100,57 @@ As a scene's complexity increases, so does the need for acceleration techniques,
 In this application, I have added two very common acceleration methods.
 
 The first is an implementation of a Bounding Volume Hierarchy (BVH). I implemented a simple mid-point axis BVH, which builds a tree by recursively splitting the scene into two nodes. The split is along the axis of the mid-point of the geometric primitives within the node. I then implemented a linear BVH (LBVH), which is a bit more sophisticated but results in a faster and more reliable performance.
-<div class="flex-wrapper">
-<img src="/assets/midPointBVH.png" style={{"width": "100%;"}}/>
-<img src="/assets/horizontalBVH.png" style={{"width": "100%;"}}/>
-<em>From top: mid-point BVH, LBVH.</em>
-</div>
+
+<Figure caption="From top: mid-point BVH, LBVH"> 
+    <img src="/assets/midPointBVH.png"/>
+    <img src="/assets/horizontalBVH.png"/>
+</Figure>
 A LBVH is particulary useful for GPUs as building them is easily parallelisable. They are based on mapping "treelets", small subtrees of scene primitives that are close together, to Morton primitives. By using these primitives, the treelets are sorted using the radix sort algorithm such that nearby treelets are in contiguous segments. We could use other sorting algorithms, but for a large number of treelets radix sort is appropriate. Furthermore, it is ideal for a GPU implementations as the algorithm doesn't branch and works very well with SIMD. 
 
 Combined with flattening the tree into a single compact array, with nodes cache-aligned, traversal of the tree is much faster.
 
 The second is multithreading, harnessing the multiple cores in modern CPUs and dividing the rendering task which is thankfully embarassingly parallel. 
 
-I implemented a thread pool using C++'s ```std::thread``` interface and a thread-safe, lock-based stack for processing tasks.
+I implemented a thread pool using C++'s `std::thread` interface and a thread-safe, lock-based stack for processing tasks.
 
-On initialisation, worker threads are launched with the ```ThreadPool::worker()``` function:
-```cpp
-ThreadPool::ThreadPool(const size_t& threadCount)
-    : threadCount{ threadCount ? 
-    threadCount : std::thread::hardware_concurrency()},
-    tasksCount{ 0 }, workers{}, running{ true }, tasks{}
-{
-    workers.reserve(threadCount);
-    for (size_t t = 0; t < threadCount; ++t)
-    {
-        workers.push_back(
-            std::thread(&ThreadPool::worker, this));
-    }
-}
+On initialisation, worker threads are launched with the `ThreadPool::worker()` function:
 
-void ThreadPool::worker()
-{
-    std::function<void()> task; 
-    while (running)
+<Figure caption="C++ thread pool initialisation and worker function"> 
+    ```cpp
+    ThreadPool::ThreadPool(const size_t& threadCount)
+        : threadCount{ threadCount ? 
+        threadCount : std::thread::hardware_concurrency()},
+        tasksCount{ 0 }, workers{}, running{ true }, tasks{}
     {
-        // std::move from stack to task
-        if (tasks.pop(task))
+        workers.reserve(threadCount);
+        for (size_t t = 0; t < threadCount; ++t)
         {
-            task();
-            tasksCount--;
+            workers.push_back(
+                std::thread(&ThreadPool::worker, this));
         }
     }
-}
-```
-<div class="flex-wrapper">
-<em>Thread pool initialisation and worker function.</em>
-</div>
+
+    void ThreadPool::worker()
+    {
+        std::function<void()> task; 
+        while (running)
+        {
+            // std::move from stack to task
+            if (tasks.pop(task))
+            {
+                task();
+                tasksCount--;
+            }
+        }
+    }
+    ```
+</Figure>
 
 Here are some time measurements illustrating the impact these accelerations have on the overall run-time for the same scene.
-<div class="flex-wrapper">
-<img src="/assets/cornellboxtimings.png" style={{"width" :"100%;"}}/>
-<em>Cornell box run times (averaging of 4 measurements per sample number) for the cornell box scene.</em>
-</div>
+
+<Figure caption="Run times (averaging of 4 measurements per sample size) for the Cornell box scene">
+    <img src="/assets/cornellboxtimings.png" alt="Cornell box scene render times graph"/>
+</Figure>
 Rendering in parallel with four cores provides a consistent 600% speedup compared to serial implementations.
 However, because of the relatively small number of primitives in this scene the speedup provided by the LBVH, although still around 16%, is not consequential. An interesting feature of the data is the difference in standard deviation between the non-BVH and LBVH implementations which I believe is a feature of the more cache coherent BVH structure.\\
 Whereas it seems to stabilise at around 1000 ms for the LBVH, it is much higher for the non-BVH and as large as 19775 ms for the serial implementation of 20 samples per pixel. That's almost a 20 second difference between the slowest and fastest measurement!
@@ -161,11 +164,10 @@ Notice how the second image row from the bottom in the above gif finishes much l
 
 To help determine a better task per thread allocation, I created some heatmaps (blue = min, red = max) showing the overall complexity for a scene.
 
-<div class="flex-wrapper">
-<img src="/assets/hmap.jpg" style={{"width": "50%;"}}/>
-<img src="/assets/hmap_runtime.jpg" style={{"width": "50%;"}}/>
-<em>Left to right (in both): heat map of ray depth, heat map of ray runtime.</em>
-</div>
+<Figure caption="Left to right (in both): heat map of ray depth, heat map of ray compute runtime" figsPerRow={2}>
+    <img src="/assets/hmap.jpg" alt="cornell box as ray depth heat map" />
+    <img src="/assets/hmap_runtime.jpg" alt="cornell box as ray compute time heat map"/>
+</Figure>
 
 <Ellipsis />
 

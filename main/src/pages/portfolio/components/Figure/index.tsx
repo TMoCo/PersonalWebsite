@@ -1,14 +1,15 @@
+import { PropsWithChildren } from 'react'
+
 interface FigureProps {
-  src: string
-  alt: string
   caption?: string
+  figsPerRow?: number
 }
 
-export function Figure({ src, alt, caption }: FigureProps) {
+export function Figure({ children, caption, figsPerRow = 1 }: PropsWithChildren<FigureProps>) {
   return (
-    <figure className="figure">
-      <img src={src} alt={alt} />
-      {caption && <figcaption>{caption}</figcaption>}
+    <figure>
+      <div className={`figure per-row-${figsPerRow}`}>{children}</div>
+      {caption && <figcaption><em>{caption}</em></figcaption>}
     </figure>
   )
 }
